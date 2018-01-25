@@ -1,18 +1,13 @@
 ﻿using EduPortal.Core.Entities;
 using EduPortal.Core.EntityFrameworkConfig;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EduPortal.Core
 {
     public class EduPortalDbContext : DbContext
     {
         public EduPortalDbContext()
-            : base("name=EduPortalDefaultConnection")
+            : base("name=defaultConnection")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
@@ -23,7 +18,7 @@ namespace EduPortal.Core
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-           modelBuilder.Configurations.Add(new CourseConfiguration());
+            modelBuilder.Configurations.Add(new CourseConfiguration());
         }
     }
 }
