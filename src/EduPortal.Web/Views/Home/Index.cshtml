@@ -1,0 +1,18 @@
+﻿
+@model IEnumerable<EduPortal.Core.Entities.Course>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("AddCourse", "Home"))
+{
+    <input class="btn btn-primary" type="submit" value="Add Course" />
+}
+<br />
+<ul>
+    @foreach (var course in Model)
+    {
+        <li>@course.Name</li>
+    }
+</ul>
